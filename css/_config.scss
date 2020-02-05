@@ -1,0 +1,50 @@
+$primary-color: #444444;
+$secondary-color: #56afe2;
+$tertiary-color: #eb9d0e;
+$background-opacity: 0.9;
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+// SET TEXT COLOR
+
+@function setTextColor($color) {
+  @if (lightness($color) > 40) {
+    @return #242121;
+  } @else {
+    @return #ffffff;
+  }
+}
+
+// MEDIA QUERY MIXINS
+
+@mixin mediaSmall {
+  @media screen and (max-width: 545px) {
+    @content;
+  }
+}
+
+@mixin mediaMedium {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mediaLarge {
+  @media screen and (min-width: 769px) and (max-width: 1169px) {
+    @content;
+  }
+}
+
+@mixin mediaXLarge {
+  @media screen and (min-width: 1170px) {
+    @content;
+  }
+}
+
+section main {
+  height: 100vh;
+}

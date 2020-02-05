@@ -1,0 +1,361 @@
+@import "./mobile";
+
+* {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Muli", sans-serif;
+}
+
+nav {
+  width: 100vw;
+  position: fixed;
+  margin-top: 20px;
+  z-index: 996;
+
+  .logo {
+    float: left;
+    margin-left: 16px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+
+    a {
+      color: #ffffff;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 20px;
+      letter-spacing: 0px;
+      text-decoration: none;
+      mix-blend-mode: difference;
+    }
+  }
+
+  ul {
+    float: right;
+    list-style-type: none;
+
+    li {
+      padding: 0;
+      height: 30px;
+      display: inline-block;
+      list-style-type: none;
+
+      a {
+        position: relative;
+        display: block;
+        padding: 0;
+        font-family: Lato, sans-serif;
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: 0.5s;
+        overflow: hidden;
+
+        &::after {
+          position: absolute;
+          content: "";
+          top: 100%;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background: #ffffff;
+          transform: scaleX(0);
+          transform-origin: right;
+          transition: transform 0.5s;
+        }
+
+        &:hover {
+          color: #ffffff;
+          text-decoration: none;
+          overflow: hidden;
+        }
+
+        &:hover::after {
+          transform: scaleX(1);
+          transform-origin: left;
+        }
+      }
+
+      .current {
+        border-bottom: 3px solid #ffffff;
+        padding-bottom: 3px;
+      }
+
+      &:not(:first-child) {
+        margin-left: 48px;
+      }
+
+      &:last-child {
+        margin-right: 40px;
+      }
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+}
+
+.active {
+  background: #ffffff;
+}
+
+#home {
+  height: 100vh;
+  background-color: #dc136d85;
+  color: #fdfdff;
+  text-align: center;
+  z-index: 10;
+
+  h3 {
+    overflow: hidden;
+  }
+
+  /* Style the video: 100% width and height to cover the entire window */
+  #myVideo {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 104vw;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .headerhome {
+    padding: 22vw 0 20px;
+    font-size: 50px;
+  }
+}
+
+#webdev {
+  background-color: #fdfdff;
+  text-align: center;
+  color: #605f5e;
+
+  .webAbout {
+    height: 100vh;
+  }
+  .webService {
+    height: 100vh;
+    background-color: #084c61;
+  }
+
+  h1 {
+    color: #084c61;
+    font-size: 4rem;
+    overflow: hidden;
+  }
+
+  hr {
+    color: #084c61;
+    background-color: #084c61;
+    width: 5%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .aboutTitle {
+    padding: 70px 0 0;
+    overflow: hidden;
+  }
+
+  .aboutDesc {
+    padding: 0 15%;
+  }
+}
+
+#about {
+  height: 100vh;
+  background-color: #fdfdff;
+  text-align: center;
+  color: #605f5e;
+
+  hr {
+    color: #084c61;
+    background-color: #084c61;
+    width: 5%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h1 {
+    color: #084c61;
+    font-size: 4rem;
+    overflow: hidden;
+  }
+
+  .aboutTitle {
+    padding: 70px 0 0;
+    overflow: hidden;
+  }
+
+  .aboutDesc {
+    padding: 0 15%;
+  }
+}
+
+#numbers {
+  background: linear-gradient(to bottom, #cccccc80 0%, #cccccc90 100%), url("../images/photo-1427751840561-9852520f8ce8.jpg");
+  background-color: #cccccc;
+  background-size: cover;
+  height: 100vh;
+
+  blockquote {
+    font-size: 4rem;
+    font-style: italic;
+    margin: 0.25em 0;
+    padding: 30vh 10vw 0;
+    line-height: 1.45;
+    position: relative;
+    color: #050505;
+    text-transform: uppercase;
+    overflow: hidden;
+
+    &:before {
+      display: block;
+      padding-left: 10px;
+      content: "\201C";
+      font-size: 175px;
+      position: absolute;
+      left: 35px;
+      top: 115px;
+      color: #050505;
+
+      cite {
+        color: #050505;
+        font-size: 2rem;
+        display: block;
+        margin-top: 5px;
+
+        &:before {
+          content: "\2014 \2009";
+        }
+      }
+    }
+  }
+}
+
+#service {
+  height: 100vh;
+  background-color: #605f5e;
+  padding: 110px 0 0;
+
+  h1 {
+    color: #fdfdff;
+    text-align: center;
+    font-size: 4rem;
+    overflow: hidden;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    padding: 8px 0;
+  }
+
+  hr {
+    color: #084c61;
+    background-color: #084c61;
+    margin: 0 auto;
+  }
+
+  .titleserv {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 0;
+  }
+
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 375px;
+    padding: 0 10px;
+  }
+
+  /* Remove extra left and right margins, due to padding in columns */
+  .row {
+    padding: 80px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Clear floats after the columns */
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: #fdfdff;
+
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 75px;
+    }
+  }
+}
+
+#contact {
+  background-color: #272838;
+  height: 100vh;
+  overflow: hidden;
+
+  h1 {
+    color: #fdfdff;
+    text-align: center;
+    font-size: 4rem;
+    overflow: hidden;
+    padding-top: 20px;
+  }
+
+  .contactPhone {
+    padding-top: 15px;
+    color: #fdfdff;
+    font-size: 1.1rem;
+  }
+
+  .column2 {
+    float: left;
+    width: 400px;
+    padding: 20px 0 0 60px;
+  }
+
+  #mc_embed_signup {
+    color: #ffffff;
+    clear: left;
+    font-size: 14px;
+    margin: 0 auto;
+    width: 50vw;
+    padding: 0;
+  }
+
+  a {
+    color: #fdfdff;
+
+    &:hover {
+      text-decoration: none;
+      color: #dc136c;
+    }
+  }
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}

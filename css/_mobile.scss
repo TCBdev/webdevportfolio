@@ -1,0 +1,242 @@
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin section {
+  height: 100vh;
+  width: 100vw;
+}
+
+@media screen and (max-width: 960px) {
+  body {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 864px) {
+  * {
+    overflow: hidden;
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+  .logo {
+    padding: 0;
+  }
+
+  .txt {
+    font-size: 2rem;
+  }
+
+  .nav-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    z-index: -5;
+    background-color: #ffffff;
+    opacity: 0;
+    transition: all 0.2s ease;
+
+    ul {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+
+      li {
+        display: block;
+        float: none;
+        width: 100%;
+        text-align: right;
+        margin-bottom: 10px;
+
+        a {
+          padding: 10px 24px;
+          opacity: 0;
+          color: #141414;
+          font-size: 16px;
+          font-weight: 600;
+          letter-spacing: 1.2px;
+          transform: translateX(-20px);
+          transition: all 0.2s ease;
+
+          &::after {
+            position: absolute;
+            content: "";
+            top: 100%;
+            right: 0;
+            width: 30%;
+            height: 3px;
+            background: #2b5876;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s;
+          }
+
+          &:hover {
+            color: #2b5876;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+          }
+
+          &:hover::after {
+            transform: scaleX(1);
+            transform-origin: right;
+          }
+        }
+
+        .current {
+          border-bottom: 3px solid #161616;
+          padding-bottom: 3px;
+        }
+
+        &:nth-child(1) a {
+          transition-delay: 0.2s;
+        }
+
+        &:nth-child(2) a {
+          transition-delay: 0.3s;
+        }
+
+        &:nth-child(3) a {
+          transition-delay: 0.4s;
+        }
+
+        &:nth-child(4) a {
+          transition-delay: 0.5s;
+        }
+
+        &:nth-child(5) a {
+          transition-delay: 0.6s;
+        }
+
+        &:not(:first-child) {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .nav-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: block;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    z-index: 999;
+    border-radius: 50%;
+
+    i {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: #141414;
+      border-radius: 2px;
+      margin-left: 14px;
+
+      &:nth-child(1) {
+        margin-top: 16px;
+      }
+
+      &:nth-child(2) {
+        margin-top: 4px;
+        opacity: 1;
+      }
+
+      &:nth-child(3) {
+        margin-top: 4px;
+      }
+    }
+  }
+
+  #nav:checked + .nav-btn {
+    transform: rotate(45deg);
+
+    i {
+      background: #000000;
+      transition: transform 0.4s ease;
+
+      &:nth-child(1) {
+        transform: translateY(6px) rotate(180deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: translateY(-6px) rotate(90deg);
+      }
+    }
+  }
+
+  #nav:checked ~ .nav-wrapper {
+    z-index: 990;
+    opacity: 1;
+
+    ul li a {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  #nav:not(:checked) + .nav-btn {
+    transform: rotate(0);
+
+    i {
+      background: #000000;
+      transition: transform 0.4s ease;
+
+      &:nth-child(1) {
+        transform: translateY(0) rotate(0);
+      }
+
+      &:nth-child(2) {
+        opacity: 1;
+      }
+
+      &:nth-child(3) {
+        transform: translateY(0) rotate(0);
+      }
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  header {
+    padding-left: 20px;
+    width: 100vw;
+    height: 50vh;
+
+    .intro {
+      overflow: hidden;
+    }
+
+    .intro-header {
+      padding-top: 10px;
+
+      h2 {
+        margin: 15px 0 0;
+      }
+    }
+
+    .icons {
+      padding: 0;
+      margin: 15px 0 0;
+      font-size: 10px !important;
+      text-align: left !important;
+    }
+  }
+}
